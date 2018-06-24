@@ -4,8 +4,24 @@ from threading import Timer
 from appJar import gui
 
 # 1 = 30min
-time_spans = [4, 2, 1]
+time_spans = []
 it = 0
+
+
+def read_config():
+    # read file
+    with open("intervals.txt", "r") as ins:
+        file = []
+        for line in ins:
+            file.append(line)
+    # check if exist and add timespans
+    global time_spans
+    if len(file) < 2:
+        time_spans = time_spans + [4,2,1]
+    else:
+        intervals = file[1].split(",")
+        for interval in intervals:
+            time_spans.append(int(interval))
 
 
 def quit_program():
@@ -53,6 +69,8 @@ def timer_shutdown():
 
 
 # main
+
+read_config()
 
 with gui("Shutdown", "300x100", font={'size': 18}, showIcon=False) as app:
     app.setIcon("icon.ico")

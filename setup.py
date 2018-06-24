@@ -13,7 +13,7 @@ if sys.platform == 'win32':
 exe = Executable(script="ShutdownManager.py", base=base, icon="icon.ico")
 
 setup(name="Shutdown",
-        options={"build_exe": {"packages": ["os", "threading", "appJar"], "include_files": ["icon.ico"]}},
+        options={"build_exe": {"packages": ["os", "threading", "appJar"], "include_files": ["icon.ico","intervals.txt"]}},
         version="0.1",
         description="Shutdown Manager",
         executables=[exe])

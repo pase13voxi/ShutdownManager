@@ -2,3 +2,6 @@
 
 To create a .exe file:
   - python setup.py build
+
+To configure the intervals
+  - open intervals.txt
